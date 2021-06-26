@@ -12,13 +12,13 @@
 
 ## 界面截图
 
-![home](https://cdn.jsdelivr.net/gh/LingSiKi/images/img/home.png)
+![home](https://cdn.jsdelivr.net/gh/ReaJason/WBTopicCheckTool/res/home.png)
 
-![scan_login](https://cdn.jsdelivr.net/gh/LingSiKi/images/img/scan_login.png)
+![scan_login](https://cdn.jsdelivr.net/gh/ReaJason/WBTopicCheckTool/res/scan_login.png)
 
-![login_success](https://cdn.jsdelivr.net/gh/LingSiKi/images/img/login_success.png)
+![login_success](https://cdn.jsdelivr.net/gh/ReaJason/WBTopicCheckTool/res/login_success.png)
 
-![check_in.png](https://cdn.jsdelivr.net/gh/LingSiKi/images/img/check_in.png)
+![check_in.png](https://cdn.jsdelivr.net/gh/ReaJason/WBTopicCheckTool/res/check_in.png)
 
 ## 注意事项
 

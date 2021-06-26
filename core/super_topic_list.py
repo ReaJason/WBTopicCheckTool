@@ -1,7 +1,7 @@
 """
 获取超话列表
 __author__ = "ReaJason"
-__date__ = "2021年2月4日"
+__date__ = "2021年6月27日"
 __site__ = "https://reajason.top"
 __email__ = "reajason@163.com"
 """
@@ -19,6 +19,7 @@ def get_follow_topic_list_from_internet(cookie):
     for page_num in itertools.count(1):
         time.sleep(1)
         res = pac_requests('GET', url.format(page_num), headers_={"cookie": cookie})
+        print(res['response'].json())
         if not res['status']:
             return []
         lists = res['response'].json()['data']['list']

@@ -14,7 +14,7 @@ from src.login_ui import ScanImage
 from settings import ICON_PATH
 
 __author__ = "ReaJason"
-__date__ = "2021年2月4日"
+__date__ = "2021年6月27日"
 __site__ = "https://reajason.top"
 __email__ = "reajason@163.com"
 
@@ -22,7 +22,7 @@ __email__ = "reajason@163.com"
 class MainWin(QDialog):
     def __init__(self):
         super(MainWin, self).__init__()
-        self.setWindowTitle('微博超话工具 v2.0（By ReaJason）')
+        self.setWindowTitle('微博超话工具 v2.1（By ReaJason）')
         
         # self.setFixedSize(500, 300)
         
@@ -109,9 +109,9 @@ class MainWin(QDialog):
         if login_dict['status']:
             self.cookie = login_dict['web_cookie']
             print(self.cookie)
-            self.username = login_dict['user']['name']
+            self.username = login_dict['user']['screen_name']
             self.nick_lb.setText(self.username)
-            self.log_widget.addItem(f"{login_dict['user']['name']}，{login_dict['msg']}")
+            self.log_widget.addItem(f"{login_dict['user']['screen_name']}，{login_dict['msg']}")
             self.log_widget.setCurrentRow(self.log_widget.count() - 1)
             self.refresh_topic_list()
         else:
