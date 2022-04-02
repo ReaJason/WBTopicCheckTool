@@ -28,7 +28,9 @@ def super_topic_check_in(cookie, super_topic_dict):
         "screen": "1536*864",
         "__rnd": str(int(round(time.time() * 1000))),
     }
-    res = pac_requests('GET', url, params=params, headers_={'cookie': cookie})
+    res = pac_requests('GET', url, params=params, headers_={'cookie': cookie,
+                                                            'referer': f'https://weibo.com/p/{super_topic_dict["id"]}/super_index'})
+    print(res)
     if not res['status']:
         return {'status': 0, 'msg': res['errmsg']}
     try:
@@ -51,16 +53,16 @@ def super_topic_check_in(cookie, super_topic_dict):
 
 class CheckIn(QThread):
     signal = pyqtSignal(str)
-    
+
     def __init__(self, sleep_time, topic_list, cookie):
         super(CheckIn, self).__init__()
         self.sleep_time = sleep_time
         self.topic_list = topic_list
         self.cookie = cookie
-    
+
     def run(self):
         for index, topic_dict in enumerate(self.topic_list):
             time.sleep(self.sleep_time)
             result = super_topic_check_in(cookie=self.cookie, super_topic_dict=topic_dict)
-            self.signal.emit(f"{index+1}:{topic_dict['title']}，{result['msg']}")
+            self.signal.emit(f"{index + 1}:{topic_dict['title']}，{result['msg']}")
         self.signal.emit("所有超话签到完毕，如有失败请单签")

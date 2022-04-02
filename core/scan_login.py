@@ -15,8 +15,12 @@ from core.api import get_uid, get_user_info
 def get_qrcode(session):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/86.0.4240.75 Safari/537.36"
+                      "Chrome/86.0.4240.75 Safari/537.36",
+        "Referer": "https://weibo.com/"
     }
+    """
+    https://login.sina.com.cn/sso/qrcode/image?entry=sinawap&size=180&callback=STK_16411913207265
+    """
     qrcode_url = "https://login.sina.com.cn/sso/qrcode/image?entry=account&size=256&callback=1"
     try:
         session.get('https://m.weibo.cn/', headers=headers)
@@ -31,19 +35,20 @@ def get_qrcode(session):
 
 class QRCodeThread(QThread):
     signal = pyqtSignal(dict)
-    
+
     def __init__(self, session):
         super().__init__()
         self.session = session
-    
+
     def run(self):
         qr_dict = get_qrcode(self.session)
         self.signal.emit(qr_dict)
 
+
 def login(session, alt):
     login_url = "https://login.sina.com.cn/sso/login.php"
     login_params = {
-        "entry": "weibo",
+        "entry": "sinawap",
         "returntype": "TEXT",
         "crossdomain": "1",
         "cdult": "3",
@@ -53,19 +58,16 @@ def login(session, alt):
         "callback": "1",
     }
     try:
-        res = session.get(login_url, params=login_params, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/86.0.4240.75 Safari/537.36"
-        })
-        # print(re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'))
-        session.get(url=re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'), headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/86.0.4240.75 Safari/537.36"
-        })
-    except :
-        return {'status': 0, 'msg':  '网络出错/账号异常'}
+        res = session.get(login_url, params=login_params)
+        print(res.text)
+        print(re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'))
+        print(session.cookies)
+        res1 = session.get(url=re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'))
+        print(res1.text)
+    except:
+        return {'status': 0, 'msg': '网络出错/账号异常'}
     cookie = ''
-    count = 0
+    count = 1
     for k, v in session.cookies.items():
         if k == 'SUB' and count:
             cookie += f"{k}={v}; "
@@ -81,7 +83,7 @@ def login(session, alt):
 
 class ScanPicThread(QThread):
     scan_signal = pyqtSignal(dict)
-    
+
     def __init__(self, win, session, qrid):
         super(ScanPicThread, self).__init__()
         self.qrid = qrid
@@ -92,7 +94,7 @@ class ScanPicThread(QThread):
                           "Chrome/86.0.4240.75 Safari/537.36",
             "Referer": "http://my.sina.com.cn/"
         }
-    
+
     def run(self):
         while True:
             # 扫码窗口关闭，则结束扫码检测

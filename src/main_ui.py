@@ -106,6 +106,7 @@ class MainWin(QDialog):
         :param login_dict:
         :return:
         """
+        print(login_dict)
         if login_dict['status']:
             self.cookie = login_dict['web_cookie']
             print(self.cookie)
