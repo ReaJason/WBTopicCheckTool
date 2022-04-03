@@ -47,6 +47,11 @@ class QRCodeThread(QThread):
 
 def login(session, alt):
     login_url = "https://login.sina.com.cn/sso/login.php"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/86.0.4240.75 Safari/537.36",
+        "Referer": "https://weibo.com/"
+    }
     login_params = {
         "entry": "sinawap",
         "returntype": "TEXT",
@@ -58,16 +63,16 @@ def login(session, alt):
         "callback": "1",
     }
     try:
-        res = session.get(login_url, params=login_params)
+        res = session.get(login_url, params=login_params, headers=headers)
         print(res.text)
         print(re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'))
         print(session.cookies)
-        res1 = session.get(url=re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'))
+        res1 = session.get(url=re.findall('"(.*?)"', res.text)[-1].replace('\/', '/'), headers=headers)
         print(res1.text)
-    except:
+    except Exception as e:
         return {'status': 0, 'msg': '网络出错/账号异常'}
     cookie = ''
-    count = 1
+    count = 0
     for k, v in session.cookies.items():
         if k == 'SUB' and count:
             cookie += f"{k}={v}; "

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="925bad5e-54cb-46cc-ad89-7cee738e766b" name="Default Changelist" comment="修复扫码登录之后闪退问题">
+    <list default="true" id="925bad5e-54cb-46cc-ad89-7cee738e766b" name="Default Changelist" comment="扫码登录">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/scan_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/scan_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/topic_check_in.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/topic_check_in.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,8 @@
       <workItem from="1637653333087" duration="501000" />
       <workItem from="1641190929960" duration="3015000" />
       <workItem from="1641209856068" duration="477000" />
-      <workItem from="1648894693951" duration="357000" />
+      <workItem from="1648894693951" duration="798000" />
+      <workItem from="1648979610598" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="修复扫码登录之后闪退问题">
       <created>1624750554849</created>
@@ -144,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624750554849</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="扫码登录">
+      <created>1648895153014</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648895153014</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,12 +170,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修复扫码登录之后闪退问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复扫码登录之后闪退问题" />
+    <MESSAGE value="扫码登录" />
+    <option name="LAST_COMMIT_MESSAGE" value="扫码登录" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/WBTopicsTool$topic_check_in.coverage" NAME="topic_check_in Coverage Results" MODIFIED="1612426739640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
     <SUITE FILE_PATH="coverage/WBTopicsTool$super_topic_list.coverage" NAME="super_topic_list Coverage Results" MODIFIED="1612419499507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
-    <SUITE FILE_PATH="coverage/WBTopicCheckTool$start.coverage" NAME="start Coverage Results" MODIFIED="1648894740592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/WBTopicCheckTool$start.coverage" NAME="start Coverage Results" MODIFIED="1648980907927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/WBTopicsTool$1.coverage" NAME="1 Coverage Results" MODIFIED="1612425337126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doc" />
     <SUITE FILE_PATH="coverage/WBTopicsTool$api.coverage" NAME="api Coverage Results" MODIFIED="1612415331909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
     <SUITE FILE_PATH="coverage/WBTopicsTool$start.coverage" NAME="start Coverage Results" MODIFIED="1612429803588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
